@@ -37,24 +37,33 @@ public class FileEncryptor {
 		String newMessage = "";
 
 		for (int i = 0; i < message.length(); i++) {
-			
-			if (message.charAt(i) == ' ') {
-				
-				newMessage += " ";
-			}
 
-			if (message.charAt(i) + keyNumber > 'z') {
+			if (message.charAt(i) + keyNumber > 'z' && message.charAt(i) > 96) {
 
 				int distance = 'z' - message.charAt(i);
 				int additional = keyNumber - distance;
 
-				newMessage += (char)('a' + additional - 1);
+				newMessage += (char) (97 + additional - 1);
 
 			}
 
+			else if (message.charAt(i) + keyNumber > 'Z' && message.charAt(i) < 91) {
+
+				int distance = 'Z' - message.charAt(i);
+				int additional = keyNumber - distance;
+
+				newMessage += (char) (65 + additional-1);
+
+			}
+
+			else if (message.charAt(i) == ' ') {
+
+				newMessage += " ";
+			}
+
 			else {
-				
-				newMessage += (char)(message.charAt(i) + keyNumber);
+
+				newMessage += (char) (message.charAt(i) + keyNumber);
 
 			}
 		}
@@ -68,5 +77,10 @@ public class FileEncryptor {
 			e.printStackTrace();
 		}
 
+	}
+
+	private static boolean isUppercase(char charAt) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
