@@ -57,7 +57,7 @@ public class FileDecryptor {
 
 				else if (message.charAt(i) - key < 'A' && message.charAt(i) < 91) {
 
-					int distance = message.charAt(i);
+					int distance = message.charAt(i) - 'A';
 					int additional = key - distance;
 
 					newMessage += (char) ('Z' - additional + 1);
