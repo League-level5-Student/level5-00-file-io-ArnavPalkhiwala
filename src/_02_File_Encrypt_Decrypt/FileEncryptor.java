@@ -84,3 +84,4 @@ public class FileEncryptor {
 		return false;
 	}
 }
+//Copyright ® 2020 Arnav Palkhiwala
